@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import FriendForm from '../components/FriendForm';
 import { addNewFriend } from '../actions';
 
 const newFriendInfo = {
@@ -29,10 +30,6 @@ class FormView extends React.Component{
 
     addNewFriend = () => {
         this.props.addNewFriend(this.state.friend)
-    }
-
-    componentDidMount(){
-        this.props.getFriendList();
     }
 
     render(){

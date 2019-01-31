@@ -4,6 +4,7 @@ function FriendForm(props) {
     const handleClick = e => {
         e.preventDefault();
         props.addNewFriend();
+        props.history.push(props.state.friends);
     }
 
     return(
@@ -34,8 +35,10 @@ function FriendForm(props) {
                 value={props.friend.email}
                 />
 
-                <button onClikc={handleClick}>Add Friend</button>
+                <button onClick={handleClick}>Add Friend</button>
             </form>
         </div>
     );
 }
+
+export default FriendForm;
