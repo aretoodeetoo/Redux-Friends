@@ -23,6 +23,12 @@ const DeleteLogo = styled.img`
     margin-right: 2%;
 `
 
+const ImageWrapper = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2%;
+`
+
 function FriendsList(props){
     return(
         <FriendListWrapper>
@@ -32,6 +38,11 @@ function FriendsList(props){
                 <DeleteLogo src="https://img.icons8.com/office/16/000000/cancel.png"></DeleteLogo>
                 </FriendWrapper>
             ))}
+            <ImageWrapper>
+            <img src="https://img.icons8.com/dusk/64/000000/sprout.png"></img>
+            <img src="https://img.icons8.com/dusk/64/000000/grass.png"></img>
+            <img src="https://img.icons8.com/dusk/64/000000/sprout.png"></img>
+            </ImageWrapper>
         </FriendListWrapper>
     );
 }

@@ -1,5 +1,20 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import styled from 'styled-components';
+
+const FormInputFields = styled.input`
+    width: 95%;
+    font-size: 16px;
+`
+
+const ConditionalHeader = styled.h1`
+    color: #EFEEED;
+`
+
+const GrowthImage = styled.img`
+    margin-top: 5%;
+    height: 20px;
+`
 
 function FriendForm(props) {
     const handleClick = e => {
@@ -10,9 +25,9 @@ function FriendForm(props) {
 
     return(
         <div>
-            <h1>Add New Friend</h1>
+            <ConditionalHeader>Add New Friend</ConditionalHeader>
             <form>
-                <input 
+                <FormInputFields 
                 type="text"
                 name="name"
                 onChange={props.changeHandler}
@@ -20,7 +35,7 @@ function FriendForm(props) {
                 value={props.friend.name}
                 />
 
-                 <input 
+                 <FormInputFields 
                 type="text"
                 name="age"
                 onChange={props.changeHandler}
@@ -28,7 +43,7 @@ function FriendForm(props) {
                 value={props.friend.age}
                 />
 
-                <input 
+                <FormInputFields 
                 type="text"
                 name="email"
                 onChange={props.changeHandler}
@@ -38,6 +53,8 @@ function FriendForm(props) {
 
                 <button onClick={handleClick}>Add Friend</button>
             </form>
+
+            <GrowthImage src="https://img.icons8.com/office/16/000000/potted-plant.png"></GrowthImage>
         </div>
     );
 }
