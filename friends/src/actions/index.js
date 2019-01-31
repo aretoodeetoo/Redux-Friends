@@ -1,16 +1,21 @@
 import axios from 'axios';
 
-export const ADD_FRIEND = 'ADD_FRIEND';
+export const ADD_FRIEND_START = 'ADD_FRIEND_START';
+export const ADD_FRIEND_SUCCESS = 'ADD_FRIEND_SUCCESS';
+export const ADD_FRIEND_FAIL = 'ADD_FRIEND_FAIL';
+
 export const FETCH_FRIENDS_START = 'FETCH_FRIENDS_START';
 export const FETCH_FRIENDS_SUCCESS = 'FETCH_FRIENDS_SUCCESS';
 export const FETCH_FRIENDS_FAIL = 'FETCH_FRIENDS_FAIL';
 
-export function addNewFriend(newFriend){
-    console.log('action', newFriend);
-    return{
-        type: ADD_FRIEND,
-        payload: newFriend
-    };
+export const addNewFriend = newFriend => dispatch => {
+    dispatch({ type: ADD_FRIEND_START });
+    axios
+        .post('http://localhost:5000/api/friends', newFriend)
+        .then(res => {
+            dispatch({ type: ADD_FRIEND_SUCCESS, payload: res.data});
+        })
+        .catch(err => dispatch({ type: ADD_FRIEND_FAIL, payload: err }))
 }
 
 export const getFriendList = () => dispatch =>{

@@ -5,7 +5,7 @@ function FriendForm(props) {
     const handleClick = e => {
         e.preventDefault();
         props.addNewFriend();
-        props.history.push(props.state.friends);
+        props.history.push('/');
     }
 
     return(

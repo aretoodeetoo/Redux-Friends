@@ -4,7 +4,7 @@ function FriendsList(props){
     return(
         <div className="friendWrapper">
             {props.friends.map(friend => (
-                <div>{friend.name}</div>
+                <div key={friend.id}>{friend.name}</div>
             ))}
         </div>
     );
