@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 function FriendForm(props) {
     const handleClick = e => {
@@ -41,4 +42,4 @@ function FriendForm(props) {
     );
 }
 
-export default FriendForm;
+export default withRouter(FriendForm);

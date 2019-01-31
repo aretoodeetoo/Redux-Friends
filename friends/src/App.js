@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router';
+
 import './App.css';
 
 // import views
@@ -9,8 +11,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <FriendsListView />
-      <FormView />
+      <Route path="/" component={FriendsListView} />
+      <Route path="/" render={props => (
+        <FormView 
+        {...props}
+        /> 
+        )} />
       </div>
     );
   }
