@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getFriendList } from '../actions';
+import { getFriendList, deleteFriend } from '../actions';
 
 import FriendsList from '../components/FriendsList';
 
@@ -19,6 +19,7 @@ class FriendsListView extends React.Component{
             <FriendsList 
             friends={this.props.friends}
             history={this.props.history}
+            deleteFriend={this.props.deleteFriend}
             />
         );
     }
@@ -30,5 +31,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getFriendList }
+    { getFriendList, deleteFriend }
 )(FriendsListView);

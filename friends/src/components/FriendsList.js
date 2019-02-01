@@ -35,13 +35,13 @@ function FriendsList(props){
             {props.friends.map(friend => (
                 <FriendWrapper key={friend.id}>
                 {friend.name}
-                <DeleteLogo src="https://img.icons8.com/office/16/000000/cancel.png"></DeleteLogo>
+                <DeleteLogo src="https://img.icons8.com/office/16/000000/cancel.png" onClick={() => props.deleteFriend(friend.id)}></DeleteLogo>
                 </FriendWrapper>
             ))}
             <ImageWrapper>
-            <img src="https://img.icons8.com/dusk/64/000000/sprout.png"></img>
-            <img src="https://img.icons8.com/dusk/64/000000/grass.png"></img>
-            <img src="https://img.icons8.com/dusk/64/000000/sprout.png"></img>
+            <img src="https://img.icons8.com/dusk/64/000000/sprout.png" alt="Sprouts"></img>
+            <img src="https://img.icons8.com/dusk/64/000000/grass.png" alt="Fully bloomed friendship"></img>
+            <img src="https://img.icons8.com/dusk/64/000000/sprout.png" alt="Sprouts"></img>
             </ImageWrapper>
         </FriendListWrapper>
     );
