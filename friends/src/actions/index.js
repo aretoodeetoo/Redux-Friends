@@ -8,6 +8,10 @@ export const FETCH_FRIENDS_START = 'FETCH_FRIENDS_START';
 export const FETCH_FRIENDS_SUCCESS = 'FETCH_FRIENDS_SUCCESS';
 export const FETCH_FRIENDS_FAIL = 'FETCH_FRIENDS_FAIL';
 
+export const DELETE_FRIEND_START = 'DELETE_FRIEND_START';
+export const DELETE_FRIEND_SUCCESS = 'DELETE_FRIEND_SUCCESS';
+export const DELETE_FRIEND_FAIL = 'DELETE_FRIEND_FAIL';
+
 export const addNewFriend = newFriend => dispatch => {
     dispatch({ type: ADD_FRIEND_START });
     axios
@@ -18,7 +22,7 @@ export const addNewFriend = newFriend => dispatch => {
         .catch(err => dispatch({ type: ADD_FRIEND_FAIL, payload: err }))
 }
 
-export const getFriendList = () => dispatch =>{
+export const getFriendList = () => dispatch => {
     dispatch ({ type: FETCH_FRIENDS_START });
     axios
         .get('http://localhost:5000/api/friends')
@@ -26,4 +30,14 @@ export const getFriendList = () => dispatch =>{
             dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: res.data})
             )
         .catch(err => dispatch({ type: FETCH_FRIENDS_FAIL, payload: err}))
+}
+
+export const deleteFriend = friendId => dispatch => {
+    dispatch ({ type: DELETE_FRIEND_START });
+    axios.delete(`http://localhost:5000/api/friends/${friendId}`)
+    .then(res => 
+        dispatch({ type: DELETE_FRIEND_SUCCESS, payload: res.data })
+        )
+    .catch(err => dispatch({ type: FETCH_FRIENDS_FAIL, payload: err}))
+
 }
