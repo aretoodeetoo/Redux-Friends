@@ -17,6 +17,7 @@ const GrowthImage = styled.img`
 `
 
 function FriendForm(props) {
+    
     const handleClick = e => {
         e.preventDefault();
         props.addNewFriend();

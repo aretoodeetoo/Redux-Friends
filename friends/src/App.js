@@ -10,6 +10,10 @@ import FormView from './views/FormView';
 class App extends Component {
   render() {
     return (
+      <>
+      <div className="headerWrapper">
+      <h1>Keep Track of Your Friends Here!</h1>
+      </div>
       <div className="App">
       <Route path="/" component={FriendsListView} />
       <Route path="/" render={props => (
@@ -18,6 +22,8 @@ class App extends Component {
         /> 
         )} />
       </div>
+      </>
+      
     );
   }
 }

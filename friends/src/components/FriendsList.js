@@ -19,8 +19,19 @@ const FriendWrapper = styled.div`
     justify-content: space-between;
 `
 
+const LogoWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+    margin-right: 1%;
+`
+
 const DeleteLogo = styled.img`
-    margin-right: 2%;
+    margin-right: 4%;
+`
+
+const EditLogo = styled.img`
+    margin-right: 10%;
 `
 
 const ImageWrapper = styled.div`
@@ -35,7 +46,10 @@ function FriendsList(props){
             {props.friends.map(friend => (
                 <FriendWrapper key={friend.id}>
                 {friend.name}
-                <DeleteLogo src="https://img.icons8.com/office/16/000000/cancel.png" onClick={() => props.deleteFriend(friend.id)}></DeleteLogo>
+                <LogoWrapper>
+                <EditLogo src="https://img.icons8.com/dusk/18/000000/edit.png"></EditLogo>
+                <DeleteLogo src="https://img.icons8.com/office/18/000000/cancel.png" onClick={() => props.deleteFriend(friend.id)}></DeleteLogo>
+                </LogoWrapper>
                 </FriendWrapper>
             ))}
             <ImageWrapper>

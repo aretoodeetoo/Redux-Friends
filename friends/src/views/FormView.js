@@ -2,20 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import FriendForm from '../components/FriendForm';
-import { addNewFriend } from '../actions';
+import { addNewFriend, updateFriend } from '../actions';
 
-const newFriendInfo = {
-    name: '',
-    age: '',
-    email: ''
-}
+// const newFriendInfo = {
+//     name: '',
+//     age: '',
+//     email: ''
+// }
 
 class FormView extends React.Component{
     state = {
         friend: {
             name: '',
             age: '',
-            email: ''
+            email: '',
+            isUpdating: false
         }
     };
 
@@ -32,12 +33,17 @@ class FormView extends React.Component{
         this.props.addNewFriend(this.state.friend)
     }
 
+    updateFriend = () => {
+        this.props.updateFriend(this.state.friend)
+    }
+
     render(){
         return(
             <FriendForm 
             addNewFriend={this.addNewFriend}
             changeHandler={this.changeHandler}
             friend={this.state.friend}
+            updateFriend={this.updateFriend}
             />
         );
     }
@@ -47,5 +53,5 @@ const mapStateToProps = state => ({})
 
 export default connect(
     mapStateToProps,
-    { addNewFriend }
+    { addNewFriend, updateFriend }
 )(FormView);
